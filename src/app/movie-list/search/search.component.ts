@@ -19,20 +19,23 @@ export class SearchComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<{ moviename: any }>("../../../assets/movies.json").subscribe(data => {
+    this.http.get<{ moviename: any, slno: any }>("../../../assets/movies.json").subscribe(data => {
       for (let i = 0; i < 100; i++) {
-        this.movies.push(data[i].moviename);
+        this.movies.push({ name: data[i].moviename, id: data[i].slno });
       }
       this.filteredMovies = this.control.valueChanges.pipe(
         startWith(''),
         map(value => this.filter(value))
       );
     });
+  }
 
+  goToMovie(id: number) {
+    console.log(id);
   }
   private filter(value: string): string[] {
     const filterValue = this.normalizeValue(value);
-    return this.movies.filter(movie => this.normalizeValue(movie).includes(filterValue));
+    return this.movies.filter(movie => this.normalizeValue(movie.name).includes(filterValue));
   }
 
   private normalizeValue(value: string): string {

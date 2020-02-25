@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit {
   endIndex = 8;
   startIndex = 0;
   isLastSortDesc = false;
+  lastSortingMethod;
 
   constructor(private http: HttpClient) { }
 
@@ -33,15 +34,20 @@ export class MoviesComponent implements OnInit {
       this.moviesInView.push(this.allMovies[i]);
       this.startIndex++;
     }
+    if (this.lastSortingMethod) {
+      this.isLastSortDesc = !this.isLastSortDesc;
+      this.sort(this.lastSortingMethod);
+    }
   }
 
-  selectedMovie(id: any) {
+  selectedMovie(id: number) {
     console.log(id)
   }
 
   sort(type: string) {
     this.moviesInView.sort(this.compareValues(type, this.isAscDesc(this.isLastSortDesc)));
     this.isLastSortDesc = !this.isLastSortDesc;
+    this.lastSortingMethod = type;
   }
 
   isAscDesc(data: boolean) {

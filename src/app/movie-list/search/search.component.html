@@ -3,8 +3,8 @@
         <input class="responsive-card" type="text" placeholder="Search" [formControl]="control"
             [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
-                {{movie}}
+            <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.name" (click)="goToMovie(movie.id)">
+                {{movie.name}}
             </mat-option>
         </mat-autocomplete>
     </form>
