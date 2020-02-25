@@ -26,9 +26,50 @@ $uni-xyz-theme: mat-light-theme($uni-xyz-primary, $uni-xyz-accent, $uni-xyz-warn
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.responsive-card {
+  width: 30%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 996px) {
+  .responsive-card {
+    width: 50%;
+  }
+}
+
+
+@media screen and (max-width: 831px) {
+  .responsive-card {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 831px) {
+  .responsive-card {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 616px) {
+  .responsive-card {
+    width: 90%;
+  }
 }

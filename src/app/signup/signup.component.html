@@ -1,5 +1,5 @@
-<mat-card>
-    <form [formGroup]="form">
+<mat-card class="responsive-card">
+    <form [formGroup]="form" class="flex-column" (submit)="onSignUp()">
         <mat-form-field>
             <input matInput formControlName="name" type="text" placeholder="Full Name">
             <mat-error *ngIf="form.get('name').invalid">Acceps alphabets and spaces only</mat-error>
@@ -14,6 +14,6 @@
             <mat-error *ngIf="form.get('password').invalid">At least 8 characters long. Must have an uppercase letter
                 and an integer</mat-error>
         </mat-form-field>
-        <button color="accent" mat-button>Submit</button>
+        <button color="accent" mat-flat-button type="submit">Sign Up</button>
     </form>
 </mat-card>

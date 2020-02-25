@@ -7,7 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  form: FormGroup;
+  public form: FormGroup;
 
   constructor() { }
 
@@ -18,9 +18,20 @@ export class SignupComponent implements OnInit {
       }),
       email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
       password: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*\d.*)')]
+        validators: [Validators.required, Validators.minLength(8), Validators.pattern(`\\S*(([A-Z]\\S*[0-9])|([0-9]\\S*[A-Z]))\\S*`)]
       })
     });
   }
 
+  onSignUp() {
+    if (this.form.invalid) {
+      return;
+    }
+    const signUpData = {
+      name: this.form.value.name,
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
+    localStorage.setItem("userData", JSON.stringify(signUpData));
+  }
 }
