@@ -7,23 +7,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
 import { SignupComponent } from './auth/signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchComponent } from './movie-list/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MoviesComponent } from './movie-list/movies/movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     MovieListComponent,
-    SearchComponent
+    SearchComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
