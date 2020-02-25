@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './auth/authentication.service';
 
 @Component({
@@ -6,14 +6,13 @@ import { AuthenticationService } from './auth/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isAuthenticated: boolean;
   constructor(private authService: AuthenticationService) {
   }
   ngOnInit() {
     this.authService.autoAuthUser();
     this.isAuthenticated = this.authService.getIsAuth();
-    console.log(this.isAuthenticated)
     this.authService.getAuthStatusListener().subscribe(res => this.isAuthenticated = res, err => this.isAuthenticated = false);
   }
   onLogout() {
