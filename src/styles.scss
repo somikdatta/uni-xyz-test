@@ -44,14 +44,14 @@ body {
   flex-direction: column;
 }
 
-.mat-chip.mat-standard-chip {
-  background-color: #fff;
-}
 
 .mat-chip-list-wrapper {
-  display: flex;
-  justify-content: space-between !important;
-  width: 100%;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.grey-background {
+  background-color: #e6e6e6 !important;
 }
 
 .responsive-card {

@@ -1,0 +1,19 @@
+<mat-card [style.height.rem]="height" [style.width.rem]="width" [style.background]="'url('+ posterLink +')'"
+    [style.backgroundColor]="'#e6e6e6'" [style.backgroundPosition]="'center'" [style.backgroundRepeat]="'no-repeat'"
+    [style.backgroundSize]="'cover'" (click)="onSelect.emit(id)">
+    <mat-card-actions [style.background]="'#ffffff'" [style.display]="'flex'" [style.justifyContent]="'space-between'"
+        [style.width]="'calc(100% - 16px)'" [style.position]="'absolute'" [style.bottom.px]="'0'" [style.left.px]="'8'"
+        [style.height.%]="'20'" [style.padding.rem]="'0.5'" [style.marginBottom.px]="'0'"
+        [style.borderBottomLeftRadius.px]="4" [style.borderBottomRightRadius.px]="'4'">
+        <div [style.display]="'flex'" [style.alignItems]="'center'">
+            {{movieName}}
+        </div>
+        <div [style.display]="'flex'" [style.alignItems]="'center'">
+            <mat-icon color="primary" *ngFor="let ratingId of ratingArr;index as i">
+                {{showIcon(i)}}
+            </mat-icon>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
+<!-- Reusable module for later use -->

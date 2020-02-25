@@ -1,1 +1,21 @@
-<p>movies works!</p>
+<mat-chip-list>
+    Sort:
+    <mat-chip (click)="sort('moviename')">
+        By name
+    </mat-chip>
+    <mat-chip (click)="sort('year')">
+        By year
+    </mat-chip>
+    <mat-chip (click)="sort('starrating')">
+        By rating
+    </mat-chip>
+</mat-chip-list>
+<div id="movie-card-container">
+    <app-movie-card *ngFor="let movie of moviesInView" id="{{movie.slno}}" movieName="{{movie.moviename}}"
+        rating="{{movie.starrating}}" (onSelect)="selectedMovie($event)"></app-movie-card>
+</div>
+<mat-chip-list [style.marginBottom.rem]="'2'">
+    <mat-chip (click)="loadMore()">
+        Load more
+    </mat-chip>
+</mat-chip-list>

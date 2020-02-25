@@ -12,6 +12,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchComponent } from './movie-list/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesComponent } from './movie-list/movies/movies.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MoviesComponent } from './movie-list/movies/movies.component';
     SignupComponent,
     MovieListComponent,
     SearchComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
