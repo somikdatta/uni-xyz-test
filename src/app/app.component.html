@@ -1,2 +1,6 @@
-<mat-toolbar color="primary"></mat-toolbar>
+<mat-toolbar color="primary">
+  <mat-chip-list aria-label="Menu tabs">
+    <mat-chip *ngIf="isAuthenticated" (click)="onLogout()">Logout</mat-chip>
+  </mat-chip-list>
+</mat-toolbar>
 <app-signup></app-signup>

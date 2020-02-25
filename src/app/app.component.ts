@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './auth/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'uni-xyz';
+  isAuthenticated: boolean;
+  constructor(private authService: AuthenticationService) {
+  }
+  ngOnInit() {
+    this.authService.autoAuthUser();
+    this.isAuthenticated = this.authService.getIsAuth();
+    console.log(this.isAuthenticated)
+    this.authService.getAuthStatusListener().subscribe(res => this.isAuthenticated = res, err => this.isAuthenticated = false);
+  }
+  onLogout() {
+    this.authService.logoutUser();
+  }
 }
