@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -15,7 +16,7 @@ export class MoviesComponent implements OnInit {
   isLastSortDesc = false;
   lastSortingMethod;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.http.get("../../../assets/movies.json").subscribe(data => {
@@ -43,7 +44,7 @@ export class MoviesComponent implements OnInit {
   }
 
   selectedMovie(id: number) {
-    console.log(id)
+    this.router.navigate([`/movie-detail/${id}`]);
   }
 
   sort(type: string) {

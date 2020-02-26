@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
   movies = [];
   filteredMovies: Observable<string[]>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.http.get<{ moviename: any, slno: any }>("../../../assets/movies.json").subscribe(data => {
@@ -31,7 +32,7 @@ export class SearchComponent implements OnInit {
   }
 
   goToMovie(id: number) {
-    console.log(id);
+    this.router.navigate([`/movie-detail/${id}`]);
   }
   private filter(value: string): string[] {
     const filterValue = this.normalizeValue(value);

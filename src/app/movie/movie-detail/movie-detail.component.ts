@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class MovieDetailComponent implements OnInit {
 
   id: number;
-  movies;
+  movies = [];
+  searchedMovie;
+  isLoading = true;
 
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
@@ -24,9 +26,12 @@ export class MovieDetailComponent implements OnInit {
       }
     })
 
-    this.http.get("../../../assets/movies.json").subscribe(data => {
+    this.http.get<[]>("../../../assets/movies.json").subscribe(data => {
       this.movies = data;
+      this.searchedMovie = this.movies.filter((movie) => {
+        return movie.slno == this.id
+      })
+      this.isLoading = false;
     })
   }
-
 }

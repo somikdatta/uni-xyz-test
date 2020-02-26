@@ -1,1 +1,4 @@
-<p>movie-detail works!</p>
+<mat-spinner *ngIf="isLoading" diameter="35" color="accent"></mat-spinner>
+<app-movie-card *ngIf="!isLoading" id="{{searchedMovie[0].slno}}" movieName="{{searchedMovie[0].moviename}}"
+    rating="{{searchedMovie[0].starrating}}">
+</app-movie-card>
