@@ -8,10 +8,10 @@ import { MaterialModule } from './material.module';
 
 import { SignupComponent } from './auth/signup/signup.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { SearchComponent } from './movie-list/search/search.component';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
+import { SearchComponent } from './movie/movie-list/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MoviesComponent } from './movie-list/movies/movies.component';
+import { MoviesComponent } from './movie/movie-list/movies/movies.component';
 import { MovieCardComponent } from './movie/movie-card/movie-card.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 

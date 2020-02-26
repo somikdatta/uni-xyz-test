@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 

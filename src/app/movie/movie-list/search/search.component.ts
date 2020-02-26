@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  // searchForm: FormGroup;
   control = new FormControl();
   movies = [];
   filteredMovies: Observable<string[]>;
@@ -20,6 +19,7 @@ export class SearchComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    //Could've made a model but we aren't really getting data from backend
     this.http.get<{ moviename: any, slno: any }>("../../../assets/movies.json").subscribe(data => {
       for (let i = 0; i < 100; i++) {
         this.movies.push({ name: data[i].moviename, id: data[i].slno });
