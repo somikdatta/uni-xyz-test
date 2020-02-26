@@ -12,7 +12,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchComponent } from './movie-list/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesComponent } from './movie-list/movies/movies.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieCardComponent } from './movie/movie-card/movie-card.component';
+import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     MovieListComponent,
     SearchComponent,
     MoviesComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

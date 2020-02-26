@@ -14,7 +14,7 @@
     <app-movie-card *ngFor="let movie of moviesInView" id="{{movie.slno}}" movieName="{{movie.moviename}}"
         rating="{{movie.starrating}}" (onSelect)="selectedMovie($event)"></app-movie-card>
 </div>
-<mat-chip-list [style.marginBottom.rem]="'2'">
+<mat-chip-list [style.marginBottom.rem]="'2'" *ngIf="startIndex<100">
     <mat-chip (click)="loadMore()">
         Load more
     </mat-chip>

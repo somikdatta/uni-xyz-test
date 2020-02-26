@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { start } from 'repl';
 
 @Component({
   selector: 'app-movies',
@@ -30,9 +29,12 @@ export class MoviesComponent implements OnInit {
 
   loadMore() {
     this.endIndex += 9;
+    if (this.endIndex > this.allMovies.length) {
+      this.endIndex = this.allMovies.length - 1;
+    }
     for (let i = this.startIndex; i <= this.endIndex; i++) {
       this.moviesInView.push(this.allMovies[i]);
-      this.startIndex++;
+      ++this.startIndex;
     }
     if (this.lastSortingMethod) {
       this.isLastSortDesc = !this.isLastSortDesc;
