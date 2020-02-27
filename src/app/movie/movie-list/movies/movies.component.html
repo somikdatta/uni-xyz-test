@@ -1,4 +1,4 @@
-<mat-chip-list>
+<mat-chip-list *ngIf="!isLoading">
     Sort:
     <mat-chip (click)="sort('moviename')">
         By name
@@ -15,7 +15,7 @@
         rating="{{movie.starrating}}" (onSelect)="selectedMovie($event)"></app-movie-card>
 </div>
 <mat-spinner color="accent" diameter="35" *ngIf="isLoading"></mat-spinner>
-<mat-chip-list [style.marginBottom.rem]="'2'" *ngIf="startIndex<100">
+<mat-chip-list [style.marginBottom.rem]="'2'" *ngIf="startIndex<100 && !isLoading">
     <mat-chip (click)="loadMore()">
         Load more
     </mat-chip>

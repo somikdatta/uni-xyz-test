@@ -5,3 +5,10 @@
   margin: 2rem auto;
   width: 66.66%;
 }
+
+@media screen and (max-width: 460px) {
+  #movie-card-container {
+    display: block;
+    width: auto;
+  }
+}
