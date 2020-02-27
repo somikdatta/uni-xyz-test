@@ -11,9 +11,6 @@ export class MovieCardComponent implements OnInit {
   movieName: string;
 
   @Input()
-  posterLink: string;
-
-  @Input()
   rating: number;
 
   @Input()
