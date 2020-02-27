@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Subject } from 'rxjs';
 export class AuthenticationService {
   private isAuthenticated = false;
   private authStatusListener = new Subject<boolean>();
-  constructor() { }
+  constructor(private router: Router) { }
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
   }
@@ -15,6 +16,7 @@ export class AuthenticationService {
     return this.isAuthenticated;
   }
   setAuth() {
+    this.isAuthenticated = true;
     this.authStatusListener.next(true);
   }
   private clearAuthData() {
@@ -25,7 +27,7 @@ export class AuthenticationService {
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
     this.clearAuthData();
-    // this.router.navigate(["/"]);
+    this.router.navigate(["/signup"]);
   }
 
   private getAuthData() {

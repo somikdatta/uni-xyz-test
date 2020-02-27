@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,8 +10,8 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class SignupComponent implements OnInit {
   public form: FormGroup;
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
-  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -35,5 +36,6 @@ export class SignupComponent implements OnInit {
     }
     localStorage.setItem("userData", JSON.stringify(signUpData));
     this.authService.setAuth();
+    this.router.navigate(["/movie-index"]);
   }
 }

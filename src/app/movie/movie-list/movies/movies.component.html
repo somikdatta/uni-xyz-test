@@ -10,10 +10,11 @@
         By rating
     </mat-chip>
 </mat-chip-list>
-<div id="movie-card-container">
+<div id="movie-card-container" *ngIf="!isLoading">
     <app-movie-card *ngFor="let movie of moviesInView" id="{{movie.slno}}" movieName="{{movie.moviename}}"
         rating="{{movie.starrating}}" (onSelect)="selectedMovie($event)"></app-movie-card>
 </div>
+<mat-spinner color="accent" diameter="35" *ngIf="isLoading"></mat-spinner>
 <mat-chip-list [style.marginBottom.rem]="'2'" *ngIf="startIndex<100">
     <mat-chip (click)="loadMore()">
         Load more

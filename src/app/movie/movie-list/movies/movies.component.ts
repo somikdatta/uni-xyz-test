@@ -15,6 +15,7 @@ export class MoviesComponent implements OnInit {
   startIndex = 0;
   isLastSortDesc = false;
   lastSortingMethod;
+  isLoading = true;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -25,6 +26,7 @@ export class MoviesComponent implements OnInit {
         this.moviesInView.push(this.allMovies[i]);
         this.startIndex++;
       }
+      this.isLoading = false;
     })
   }
 

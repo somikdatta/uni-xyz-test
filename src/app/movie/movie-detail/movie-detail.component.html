@@ -1,4 +1,19 @@
 <mat-spinner *ngIf="isLoading" diameter="35" color="accent"></mat-spinner>
-<app-movie-card *ngIf="!isLoading" id="{{searchedMovie[0].slno}}" movieName="{{searchedMovie[0].moviename}}"
-    rating="{{searchedMovie[0].starrating}}">
-</app-movie-card>
+<div class="flex carousel-container" *ngIf="!isLoading">
+    <button mat-icon-button class="left-button" (click)="onLeftButtonClick()" *ngIf="!isStart">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-icon-button class="right-button" (click)="onRightButtonClick()" *ngIf="!isEnd">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <app-movie-card *ngFor="let movie of featuredMoviesQueue" id="{{movie.slno}}" movieName="{{movie.moviename}}"
+        rating="{{movie.starrating}}" [width]="carouselCardWidth" [height]="carouselCardHeight"
+        (onSelect)="selectedMovie($event)">
+    </app-movie-card>
+</div>
+
+<div class="responsive-card">
+    <app-movie-card *ngIf="!isLoading" id="{{searchedMovie[0].slno}}" movieName="{{searchedMovie[0].moviename}}"
+        rating="{{searchedMovie[0].starrating}}" [width]="infoCardWidth" [height]="infoCardHeight">
+    </app-movie-card>
+</div>

@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-  <mat-chip-list aria-label="Menu tabs">
-    <mat-chip *ngIf="isAuthenticated" (click)="onLogout()">Logout</mat-chip>
-  </mat-chip-list>
+  <a class="chip" *ngIf="isAuthenticated && path!='/movie-index'" [routerLink]="['/movie-index']">Back</a>
+  <div class="spacer"></div>
+  <a class="chip" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
 </mat-toolbar>
 <router-outlet></router-outlet>

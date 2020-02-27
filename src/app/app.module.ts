@@ -32,7 +32,7 @@ import { MovieDetailComponent } from './movie/movie-detail/movie-detail.componen
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
